@@ -1,0 +1,262 @@
+/* ==|== add all less mixins and variables here ==|== */
+@blue: #66b3e4;
+@light-grey: #bdbdbd;
+@white-on-dark: #e4e4e4;
+@grey: #868686;
+@dark-grey: #373737;
+@black: #282828;
+@green: #6BDF59;
+@image-path: 'images/';
+@sprites: '@{image-path}sprites.png';
+@bm-sprites: '@{image-path}jplayer.blue.monday.jpg';
+@bm-seeking: '@{image-path}jplayer.blue.monday.seeking.gif';
+@bm-video: '@{image-path}jplayer.blue.monday.video.play.png';
+@grainy: '@{image-path}grainy.jpg';
+@grainy-dark: '@{image-path}grainy-dark.jpg';
+
+@header-icon-increment: -20px;
+@nav-icon-increment: -50px;
+
+
+.myriad {font-family: 'MyriadWebProRegular', Arial, sans-serif;}
+.eurostile-medium {font-family: 'EurostileLTStdMedium', Helvetica Neue, Helvetica, Arial, sans-serif;}
+.eurostile {font-family: 'EurostileLTStdDemi', Helvetica Neue, Helvetica, Arial, sans-serif;}
+.arial {font-family: 'ArialBlackRegular', Helvetica Neue, Helvetica, Arial, sans-serif;}
+.helvetica-lt {font-family: 'HelveticaLTStdRegular', Helvetica Neue, Helvetica, Arial, sans-serif;}
+.helvetica-lt-cn {font-family: 'HelveticaNeueLTStdLtCnRegular', Helvetica Neue, Helvetica, Arial, sans-serif;}
+.helvetica-rg-cn {font-family: 'HelveticaNeueLTStdCnRegular', Helvetica Neue, Helvetica, Arial, sans-serif;}
+.helvetica-md-cn {font-family: 'HelveticaNeueLTStdMedCnRg', Helvetica Neue, Helvetica, Arial, sans-serif;}
+.helvetica-bd-cn {font-family: 'HelveticaNeueLTStdCnBold', Helvetica Neue, Helvetica, Arial, sans-serif;}
+
+.test-border {
+    border: 1px solid red;
+}
+.border-radius(@left: 7px,@right: 7px,@bottom-right: 7px,@bottom-left: 7px) {
+    border-radius: @arguments;
+    -moz-border-radius: @arguments;
+    -webkit-border-radius: @arguments;
+    -o-border-radius: @arguments;
+}
+.box-shadow(@x: 0, @y: 0, @spread: 10px, @color: rgba(0,0,0,0.4)) {
+    box-shadow: @x @y @spread @color;
+    -moz-box-shadow: @x @y @spread @color;
+    -webkit-box-shadow: @x @y @spread @color;
+    -o-box-shadow: @x @y @spread @color;
+    transition: box-shadow 0.2s ease-in-out;
+    -moz-transition: box-shadow 0.2s ease-in-out;
+    -webkit-transition: box-shadow 0.2s ease-in-out;
+    -o-transition: box-shadow 0.2s ease-in-out;
+}
+.no-box-shadow() {
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    -o-box-shadow: none;
+}
+.inset-box-shadow(@x: 0, @y: 0, @spread: 10px, @color: rgba(0,0,0,0.4)) {
+    box-shadow: inset @x @y @spread @color;
+    -moz-box-shadow: inset @x @y @spread @color;
+    -webkit-box-shadow: inset @x @y @spread @color;
+    -o-box-shadow: inset @x @y @spread @color;
+}
+.text-indent(@x: 0px, @y: 2px, @spread: 4px, @opacity: 0.2) {
+    color: transparent;
+    -moz-background-clip: text;
+    -o-background-clip: text;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -moz-text-shadow: @x @y @spread rgba(255,255,255,@opacity);
+    -o-text-shadow: @x @y @spread rgba(255,255,255,@opacity);
+    -webkit-text-shadow: @x @y @spread rgba(255,255,255,@opacity);
+    text-shadow: @x @y @spread rgba(255,255,255,@opacity);
+}
+.pretty-checkout-button() {
+    -moz-box-shadow:inset 0px 1px 0px 0px #fff6af;
+    -webkit-box-shadow:inset 0px 1px 0px 0px #fff6af;
+    box-shadow:inset 0px 1px 0px 0px #fff6af;
+    background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ffec64), color-stop(1, #ffab23) );
+    background:-moz-linear-gradient( center top, #ffec64 5%, #ffab23 100% );
+    background-color:#ffec64;
+    .border-radius(4px,4px,4px,4px);
+    border:1px solid #ffaa22;
+    color:#333333;
+    font-family:arial;
+    font-size:14px;
+    font-weight:bold;
+    text-decoration:none;
+    text-shadow:1px 1px 0px #ffee66;
+}
+.pretty-grey-button() {
+    -moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+    -webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+    box-shadow:inset 0px 1px 0px 0px #ffffff;
+    background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #dfdfdf) );
+    background:-moz-linear-gradient( center top, #ededed 5%, #dfdfdf 100% );
+    background-color:#ededed;
+    -moz-border-radius:6px;
+    -webkit-border-radius:6px;
+    border-radius:6px;
+    border:1px solid #dcdcdc;
+    display:inline-block;
+    color:#777777;
+    font-family:arial;
+    font-weight:bold;
+    text-decoration:none;
+    text-shadow:1px 1px 0px #ffffff;
+}
+.pretty-button-red() {
+    -moz-box-shadow:inset 0px 1px 0px 0px #f5978e;
+    -webkit-box-shadow:inset 0px 1px 0px 0px #f5978e;
+    box-shadow:inset 0px 1px 0px 0px #f5978e;
+    background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #f24537), color-stop(1, #c62d1f) );
+    background:-moz-linear-gradient( center top, #f24537 5%, #c62d1f 100% );
+    background-color:#f24537;
+    -moz-border-radius:6px;
+    -webkit-border-radius:6px;
+    border-radius:6px;
+    border:1px solid #d02718;
+    display:inline-block;
+    color:#ffffff;
+    font-family:arial;
+    font-weight:bold;
+    text-decoration:none;
+    text-shadow:1px 1px 0px #810e05;
+}
+.add-to-cart-button() {
+    -moz-box-shadow:inset 0px 1px 0px 0px #caefab;
+    -webkit-box-shadow:inset 0px 1px 0px 0px #caefab;
+    box-shadow:inset 0px 1px 0px 0px #caefab;
+    background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #67cc08), color-stop(1, #5ab307) );
+    background:-moz-linear-gradient( center top, #67cc08 5%, #5ab307 100% );
+    background-color:#67cc08;
+    -moz-border-radius:6px;
+    -webkit-border-radius:6px;
+    border-radius:6px;
+    border:1px solid #268a16;
+    display:inline-block;
+    color:#ffffff;
+    font-family:arial;
+    font-size:15px;
+    font-weight:bold;
+    padding: 10px 17px 10px 57px;
+    text-decoration:none;
+}
+
+.buttonize(@bg: #aaa) {
+    text-decoration:none;
+    letter-spacing:1px;
+    color:#fff;
+    cursor:pointer;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.40);
+    -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.40);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.40);
+    text-shadow: -1px -1px 0px rgba(0,0,0,0.15);
+    .the-gradient(@bg, @bg + 40);
+}
+.the-gradient(@x: @grey, @y: @grey + 30 ) {
+    background: @x;
+    background-image: -moz-linear-gradient(100% 100% 90deg, @x, @y);
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(@y), to(@x));
+}
+.linear-gradient(@begin: @light-grey, @end: @grey) {
+    background-color: @end;
+    background-image: -o-linear-gradient(top, @begin 50%, @end 100%);
+    background-image: -ms-linear-gradient(top, @begin 50%, @end 100%);
+    background-image: -moz-linear-gradient(top, @begin 50%, @end 100%);
+    background-image: -webkit-linear-gradient(top, @begin 50%, @end 100%);
+    background-image: linear-gradient(top, @begin 50%, @end 100%);
+}
+.box-shadow-with-inset(@x:0,@y:6px,@spread:6px,@color:rgba(0,0,0,0.7),@inset-x:0,@inset-y:1px,@inset-spread:0,@inset-color:@white-on-dark) {
+    -o-box-shadow: @x @y @spread @color, inset @inset-x @inset-y @inset-spread @inset-color;
+    -moz-box-shadow: @x @y @spread @color, inset @inset-x @inset-y @inset-spread @inset-color;
+    -webkit-box-shadow: @x @y @spread @color, inset @inset-x @inset-y @inset-spread @inset-color;
+    box-shadow: @x @y @spread @color, inset @inset-x @inset-y @inset-spread @inset-color;
+}
+
+.pretty-tabs(@width: 420px) {
+    position:relative;
+    width:@width;
+    height:25px;
+    margin: -25px 0 0 285px;
+    padding: 0;
+    list-style: none;
+    line-height: 2em;
+    text-align:center;
+    overflow-y: hidden;
+    &:before {
+        z-index: 1;
+    }
+    &:after {
+        position: absolute;
+        content: "";
+        width: 100%;
+        bottom:0;
+        left:0;
+        z-index: 1;
+    }
+    li {
+        position:relative;
+        zoom:1;/* for ie7 */
+        display: inline-block;
+        *display:inline;
+        margin: 0 -5px;
+        padding:0 20px;
+        .myriad;
+        text-shadow: 0 1px #bbb;
+        border: 1px solid @dark-grey;
+        .border-radius(6px, 6px, 0, 0);
+        .box-shadow-with-inset();
+        .linear-gradient();
+        background-color:@grey;
+        z-index: 0;
+        a {
+            position:relative;
+            width:100%;
+            height:100%;
+            color: @black;
+        }
+        &:before, &:after {
+            position:absolute;
+            bottom: -1px;
+            width: 6px;
+            height: 6px;
+            content: "";
+            border: 1px solid @dark-grey;
+            z-index:0;
+        }
+        &:before {
+            left: -7px;
+            .border-radius(0, 0, 6px, 0);
+            border-width: 0 1px 1px 0;
+            .box-shadow(2px, 2px, 0, @grey);
+        }
+        &:after {
+            right: -7px;
+            .border-radius(0, 0, 0, 6px);
+            border-width: 0 0 1px 1px;
+            .box-shadow(-2px, 2px, 0, @grey);
+        }
+        &.active {
+            .linear-gradient(@dark-grey, @black);
+            .box-shadow-with-inset(0,6px,6px,rgba(0,0,0,0.7),0,1px,0,@grey);
+            text-shadow: none;
+            z-index:2;
+            bottom: 0;
+            a {
+                color: @white-on-dark;
+            }
+            &:before {
+                .box-shadow(2px, 2px, 0, @black);
+            }
+            &:after {
+                .box-shadow(-2px, 2px, 0, @black);
+            }
+        }
+        //&.first:before, &.last:after {
+        //    .border-radius(0,0,0,0);
+        //}
+    }
+}

@@ -1,0 +1,54 @@
+// woocommerce overrides...
+@grid-gutter-width: 40px;
+* {
+  .myriad();
+}
+.products {
+  display: block;
+  margin: 0; padding: 0;
+  list-style: none;
+}
+
+.product {
+  display: block;
+  overflow: hidden;
+  padding: (@grid-gutter-width / 2) 0;
+
+  > a {
+    display: block;
+
+    > img {
+      display: block;
+      float: left;
+      margin-right: @grid-gutter-width / 2;
+      margin-bottom: @grid-gutter-width / 2;
+    }
+  }
+}
+
+.product-title {
+  .myriad();
+  font-weight: normal;
+  margin: 0;
+  color: @blue;
+  font-size: 2em;
+}
+
+.button.add-to-cart {
+  .add-to-cart-button();
+  background-image: url('@{image-path}add-to-cart.png');
+  background-repeat: no-repeat;
+  background-position: 10px 2px;
+  &:hover {
+      background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #5ab307), color-stop(1, #67cc08) );
+      background:-moz-linear-gradient( center top, #5ab307 5%, #67cc08 100% );
+      background-color:#5ab307;
+      background-image: url('@{image-path}add-to-cart.png');
+      background-repeat: no-repeat;
+      background-position: 10px 2px;
+  }
+  &:active {
+      position:relative;
+      top:1px;
+  }
+}
