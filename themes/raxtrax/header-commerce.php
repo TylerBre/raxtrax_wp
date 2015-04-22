@@ -18,7 +18,7 @@
 
   <link rel="stylesheet" href="<?php bloginfo("template_url"); ?>/style.css">
 
-  <?php // wp_head(); ?>
+  <?php wp_head(); ?>
 </head>
 <body>
   <div id="container" style="background-image: url('<?php echo get_custom("background_image"); ?>');">

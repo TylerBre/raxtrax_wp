@@ -16,6 +16,7 @@ global $product, $post;
 
 <?php do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 
+<div class="add-to-cart-container">
 <form class="variations_form cart" method="post" enctype='multipart/form-data' data-product_id="<?php echo $post->ID; ?>" data-product_variations="<?php echo esc_attr( json_encode( $available_variations ) ) ?>">
 	<?php if ( ! empty( $available_variations ) ) : ?>
 		<table class="variations" cellspacing="0">
@@ -69,7 +70,7 @@ global $product, $post;
 
 		<?php do_action( 'woocommerce_before_add_to_cart_button' ); ?>
 
-		<div class="single_variation_wrap" style="display:none;">
+		<div class="single_variation_wrap" style="">
 			<?php do_action( 'woocommerce_before_single_variation' ); ?>
 
 			<div class="single_variation"></div>
@@ -95,5 +96,6 @@ global $product, $post;
 	<?php endif; ?>
 
 </form>
+</div>
 
 <?php do_action( 'woocommerce_after_add_to_cart_form' ); ?>

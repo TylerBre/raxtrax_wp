@@ -1,10 +1,22 @@
 <?php /* Template Name: Cart Page */  ?>
 
-<?php include_once 'header-commerce.php'; ?>
+
+<?php get_header( 'shop' ); ?>
+
+<div class="container store">
+  <section class="head">
+    <h1>Cart</h1>
+    <div class="inset-shadow"></div>
+  </section>
+  <section class="scrollable-content nano">
+    <div class="content">
+      <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+        <?php the_content(); ?>
+      <?php endwhile; endif; ?>
+    <div class="clearfix"></div>
+    </div>
+  </section>
+</div>
+<?php get_footer( 'shop' ); ?>
 
 
-
-<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-  <?php the_content(); ?>
-<?php endwhile; endif; ?>
-<?php include_once 'footer-commerce.php'; ?>

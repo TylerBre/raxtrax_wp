@@ -9,6 +9,7 @@
   <!-- <script src="<?php bloginfo("template_url"); ?>/js/libs/history.js"></script> -->
   <script src="<?php bloginfo("template_url"); ?>/js/plugins/jquery.nanoscroller.js"></script>
   <script src="<?php bloginfo("template_url"); ?>/js/raxtrax-scripts.js"></script>
+  <?php wp_footer(); ?>
 
    <script type="text/javascript">
      var _gaq = _gaq || [];

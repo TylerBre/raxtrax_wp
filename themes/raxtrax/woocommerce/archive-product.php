@@ -21,7 +21,7 @@ get_header( 'shop' ); ?>
 			<div class="inset-shadow"></div>
 			<b></b><b></b>
 		</section>
-		<section class="scrollable-content nano no-mobi">
+		<section class="scrollable-content nano">
 			<div class="content">
 				<?php if ( have_posts() ) : ?>
 					<?php woocommerce_product_loop_start(); ?>

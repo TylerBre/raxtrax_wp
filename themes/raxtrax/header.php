@@ -18,7 +18,7 @@
 
   <link rel="stylesheet" href="<?php bloginfo("template_url"); ?>/style.css">
 
-  <?php // wp_head(); ?>
+  <?php wp_head(); ?>
 </head>
 <body>
   <div id="container" style="background-image: url('<?php echo get_custom("background_image"); ?>');">
@@ -30,15 +30,10 @@
     <?php if ($cart_count > 0): ?>
       <div id="cart-container">
         <div class="cart-tab">
-          <a href="#" class="cart-icon">
+          <a href="<?php bloginfo("url"); ?>/cart" class="cart-icon">
             <b><?php echo $cart_count; ?></b>
+            My Cart
           </a>
-          <div class="checkout">
-            <a href="<?php bloginfo("url"); ?>/cart" class="paypal-submit">Checkout with PayPal</a>
-            <div class="accepted-payments">
-              <img src="<?php bloginfo("template_url"); ?>/images/cc_all.png" alt="we accept paypal, visa, mastercard, amex, and discover">
-            </div>
-          </div>
         </div>
       </div>
     <?php endif; ?>

@@ -672,3 +672,20 @@ function remove_menus () {
 }
 add_action('admin_menu', 'remove_menus');
 
+
+
+/**
+*
+* Woocommerce stuff
+*
+**/
+
+add_theme_support('woocommerce');
+
+add_filter( 'woocommerce_breadcrumb_defaults', 'jk_change_breadcrumb_home_text' );
+
+function jk_change_breadcrumb_home_text( $defaults ) {
+    // Change the breadcrumb home text from 'Home' to 'Appartment'
+  $defaults['home'] = '';
+  return $defaults;
+}

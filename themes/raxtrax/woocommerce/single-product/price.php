@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 global $product;
 
 ?>
-<div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+<div class="price-container" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
 
 	<p class="price"><?php echo $product->get_price_html(); ?></p>
 
