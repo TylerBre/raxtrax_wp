@@ -2,3 +2,7 @@ wp
 .DS_Store
 .htaccess
 wp-config.php
+
+.htaccess
+
+wp-config.php
