@@ -52,7 +52,7 @@ function getDimensions() {
 function setSizes(w, h) {
     var contentWidth = (w - 232) + "px";
     var contentHeight = (h - 34) + "px";
-    var sectionHeight = (h - 369) + "px";
+    var sectionHeight = (h - 369) + 43 + "px";
     $("#content").css({'height': contentHeight, 'width': contentWidth});
     $("#navigation section").css('height', sectionHeight);
 

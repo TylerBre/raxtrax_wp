@@ -32,8 +32,8 @@
       <a href="<?php bloginfo("url"); ?>" class="home first">HOME</a>
       <b class="border"></b>
       <a href="<?php bloginfo("url"); ?>/gallery" class="image-gallery-link">IMAGES</a>
-      <b class="border"></b>
-      <a href="<?php bloginfo("url"); ?>/audio_player" class="login-link last" onclick="window.open(this.href, 'detour_share_twitter', 'width=422,height=500'); return false;">SOUNDS</a>
+<!--       <b class="border"></b>
+      <a href="<?php bloginfo("url"); ?>/audio_player" class="login-link last" onclick="window.open(this.href, 'detour_share_twitter', 'width=422,height=500'); return false;">SOUNDS</a> -->
     </div>
     <div class="clearfix"></div>
   </div>

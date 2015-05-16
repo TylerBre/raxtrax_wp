@@ -1,5 +1,7 @@
 wp
 .DS_Store
+._.DS_Store
+._*
 .htaccess
 wp-config.php
 

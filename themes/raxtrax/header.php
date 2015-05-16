@@ -21,7 +21,12 @@
   <?php wp_head(); ?>
 </head>
 <body>
-  <div id="container" style="background-image: url('<?php echo get_custom("background_image"); ?>');">
+  <?php if ($current_page == 'gallery') : ?>
+    <div id="container" class='gallery'>
+  <?php else : ?>
+    <div id="container" style="background-image: url('<?php echo get_custom("background_image"); ?>');">
+  <?php endif; ?>
+
     <?php include_once 'nav-top.php'; ?>
 
     <!-- Cart Tab -->

@@ -17,14 +17,14 @@
       <div class="image mobi"></div>
       <div class="text">Clients</div>
     </a>
-    <a href="<?php bloginfo("url"); ?>/store" class="store <?php if ($current_page == 'store' || $current_page == '') echo 'active'; ?>">
+    <a href="<?php bloginfo("url"); ?>/store" class="store last <?php if ($current_page == 'store' || $current_page == '') echo 'active'; ?>">
       <div class="image mobi"></div>
       <div class="text">Store</div>
     </a>
-    <a href="<?php bloginfo("url"); ?>/blackspade_acoustics" class="blackspade last <?php if ($current_page == 'blackspade_acoustics') echo 'active'; ?>">
+<!--     <a href="<?php bloginfo("url"); ?>/blackspade_acoustics" class="blackspade last <?php if ($current_page == 'blackspade_acoustics') echo 'active'; ?>">
       <div class="image mobi"></div>
       <div class="text">Blackspade <span class="no-mobi">Acoustics</span></div>
-    </a>
+    </a> -->
     <div class="clearfix"></div>
   </nav>
 

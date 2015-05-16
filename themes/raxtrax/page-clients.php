@@ -1,27 +1,50 @@
 <?php /* Template Name: Clients Page */
 get_header(); ?>
 
+<?php
+  $clients = new WP_Query(array(
+    'post_type' => array('client'),
+    'orderby' => 'title',
+    'order' => 'ASC'
+  ));
+  $clients = $clients->posts;
+  $featured_clients = array_filter(array_map(function ($item) {
+    if (get_field('important', $item->ID)) return $item;
+  }, $clients));
+
+  $even = $odd = array();
+
+  foreach ($clients as $index => $client) {
+    if ($index % 2 == 0) {
+      $even[] = $client;
+    } else {
+      $odd[] = $client;
+    }
+  }
+?>
+
 <div class="container clients">
   <div class="col col1 split no-mobi">
     <section class="head">
-      <h1><span><%= @current_page_info.secondary_title %></span></h1>
+      <h1><span>Complete List</span></h1>
       <div class="inset-shadow"></div>
       <b></b>
     </section>
     <section class="scrollable-content nano">
       <div class="content">
         <table style="margin-top: 15px;">
-<% @clients.each do |client| -%>
-<% unless client.website.nil? -%>
+        <?php foreach ($clients as $client) : ?>
+          <?php $website = get_field('website', $client->ID); ?>
+          <?php if ($website) : ?>
           <tr>
-            <td><a href="http://<%= client.website %>" target="_blank"><%= client.name %></a></td>
+            <td><a href="<?php echo $website; ?>" target="_blank"><?php echo $client->post_title; ?></a></td>
           </tr>
-<% else -%>
+          <?php else : ?>
           <tr>
-            <td><%= client.name %></td>
+            <td><?php echo $client->post_title; ?></td>
           </tr>
-<% end -%>
-<% end -%>
+          <?php endif; ?>
+        <?php endforeach; ?>
         </table>
       </div>
     </section>
@@ -31,7 +54,7 @@ get_header(); ?>
 
   <div class="col col2 split no-mobi">
     <section class="head">
-      <h1><%= @current_page_info.primary_title %></h1>
+      <h1><?php the_field('sub_header'); ?></h1>
       <div class="inset-shadow"></div>
       <b></b>
     </section>
@@ -40,25 +63,28 @@ get_header(); ?>
         <article>
           <section class="client-gallery">
             <div id="slider1" class="multiple">
-<% @images.each do |image| -%>
-              <div style="background-image: url('<%= image.image.url(:small) %>');">
-                <img src="<%= image.image.url(:small) %>" width="145" style="visibility:hidden;" />
-              </div>
-<% end -%>
+            <?php foreach ($featured_clients as $client) : ?>
+              <?php $image = get_field('image', $client->ID); ?>
+              <?php if($image): ?>
+                <div style="background-image: url('<?php echo $image['url']; ?>');">
+                  <img src="<?php echo $image['url']; ?>" width="145" style="visibility:hidden;" />
+                </div>
+              <?php endif; ?>
+            <?php endforeach; ?>
             </div>
           </section>
           <section class="client-featured-container">
-<% @clients.each_with_index do |client, index| -%>
-<% if client.important? -%>
-<% if client.website.match(/(http:\/\/)/) -%>
-          <a href="<%= client.website %>" target="_blank" class="featured-client link"><%= client.name %></a><span class="comma">,&nbsp;</span>
-<% elsif client.website.match(/([.])/) -%>
-          <a href="http://<%= client.website %>" target="_blank" class="featured-client link"><%= client.name %></a><span class="comma">,&nbsp;</span>
-<% else -%>
-          <span class="featured-client"><%= client.name %></span><span class="comma">,&nbsp;</span>
-<% end -%>
-<% end -%>
-<% end -%>
+          <?php foreach ($featured_clients as $index => $client) : ?>
+            <?php $website = get_field('website', $client->ID); ?>
+            <?php if ($website) : ?>
+              <a href="<?php echo $website; ?>" target="_blank" class="featured-client link"><?php echo $client->post_title; ?></a>
+            <?php else : ?>
+              <span class="featured-client"><?php echo $client->post_title; ?></span>
+            <?php endif; ?>
+            <?php if (sizeof($featured_clients) != $index): ?>
+              <span class="comma">,&nbsp;</span>
+            <?php endif; ?>
+          <?php endforeach; ?>
           </section>
         </article>
       </div>
@@ -69,41 +95,42 @@ get_header(); ?>
 
   <div class="col mobi">
     <section class="head">
-      <h1><%= @current_page_info.primary_title %></h1>
+      <h1><?php the_field('sub_header'); ?></h1>
       <div class="inset-shadow"></div>
       <b></b>
     </section>
     <section class="scrollable-content">
-  <!-- LIST -->
-  <% odd_even_split(@clients) -%>
+
       <div class="list-column left">
         <table>
-  <% @even.each do |client| -%>
-  <% unless client.website.nil? -%>
+        <?php foreach ($even as $client) : ?>
+          <?php $website = get_field('website', $client->ID); ?>
+          <?php if ($website) : ?>
           <tr>
-            <td><a href="http://<%= client.website %>" target="_blank"><%= client.name %></a></td>
+            <td><a href="<?php echo $website; ?>" target="_blank"><?php echo $client->post_title; ?></a></td>
           </tr>
-  <% else -%>
+          <?php else : ?>
           <tr>
-            <td><%= client.name %></td>
+            <td><?php echo $client->post_title; ?></td>
           </tr>
-  <% end -%>
-  <% end -%>
+          <?php endif; ?>
+        <?php endforeach; ?>
         </table>
       </div>
       <div class="list-column right">
         <table>
-  <% @odd.each do |client| -%>
-  <% unless client.website.nil? -%>
+        <?php foreach ($odd as $client) : ?>
+          <?php $website = get_field('website', $client->ID); ?>
+          <?php if ($website) : ?>
           <tr>
-            <td><a href="http://<%= client.website %>" target="_blank"><%= client.name %></a></td>
+            <td><a href="<?php echo $website; ?>" target="_blank"><?php echo $client->post_title; ?></a></td>
           </tr>
-  <% else -%>
+          <?php else : ?>
           <tr>
-            <td><%= client.name %></td>
+            <td><?php echo $client->post_title; ?></td>
           </tr>
-  <% end -%>
-  <% end -%>
+          <?php endif; ?>
+        <?php endforeach; ?>
         </table>
       </div>
     </section>
