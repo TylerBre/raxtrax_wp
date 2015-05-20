@@ -1,6 +1,6 @@
-# mkdir -p wp
-# git clone https://github.com/WordPress/WordPress.git wp
-# rm -rf wp/wp-content/plugins wp/wp-content/themes wp/wp-content/mu-plugins wp/wp-config.php wp/.htaccess
+mkdir -p wp
+git clone https://github.com/WordPress/WordPress.git wp
+rm -rf wp/wp-content/plugins wp/wp-content/themes wp/wp-content/mu-plugins wp/wp-config.php wp/.htaccess
 ln -s "$(pwd)/plugins" "wp/wp-content/plugins"
 ln -s "$(pwd)/themes" "wp/wp-content/themes"
 ln -s "$(pwd)/uploads" "wp/wp-content/uploads"
